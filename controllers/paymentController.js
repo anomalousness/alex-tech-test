@@ -14,6 +14,9 @@ const getPayments = (req, res) => {
 
 const addPayment = (req, res) => {
   const validation = validatePayment(req.body);
+  if (validation) {
+    const validated = apiValidation(req.body)
+  }
   try {
     if (validation) { 
       res.status(201).
@@ -29,7 +32,6 @@ const addPayment = (req, res) => {
     }
   
 }
-
 
 module.exports = {
   getPayments,
